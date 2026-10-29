@@ -1,10 +1,11 @@
 # SillyTavern Alternate Fields
 
-This is my personal fork of **[nbrown725's Alternate Fields extension](https://github.com/nbrown725/SillyTavern-AlternateDescriptions)**.
+This is my personal fork of nbrown725's **[Alternate Fields](https://github.com/nbrown725/SillyTavern-AlternateDescriptions)** extension.
 
 # `main` branch changes
 
 - **Feature:** Added alternate field for the "Character's Note", including a `/altfield` slash command for the "Character's Note". Restores only the text. "Depth" and "Role" remain unchanged when using either "Use" or `/altfield`. [⤷](https://github.com/julez122/SillyTavern-AlternateDescriptions/commit/6167f1aa9b40a61da7c12aad0057c43696f5c31b)
+- **Feature:** Alternate lorebook entry content. Use **Alt. Content** above an entry's content textarea to save, name, edit, and switch text versions without changing any other entry settings.
 
 ---
 
@@ -44,6 +45,20 @@ A SillyTavern extension that allows you to save and manage multiple versions of 
 ### Character's Note
 
 Note alternates save and restore **only the text**. **Depth** and **Role** remain unchanged when using either **Use** or `/altfield`. The manager provides the same first-open preservation, Add New, Save Current, unsaved-change warnings, active indicators, token counts, and deletion confirmation as the other fields.
+
+### Lorebook Entry Content
+
+Open a lorebook entry and tap **Alt. Content** above its content textarea. On mobile the compact button sits just below the content section's top border, aligned right, with 12px text and icon.
+
+The manager follows the character-field layout: Add New, title/content editing, Use, Delete with confirmation, Save Current, active indicators, and token counts. A nonblank original is saved automatically on first use. Title and alternate-text edits save after a short debounce; closing the manager flushes pending saves. Changing a saved version does not automatically replace the active entry content: use **Use** to apply it. Unsaved active text prompts for confirmation before replacement.
+
+Only entry content is switched. Keywords, order, depth, position, role, probability, filters, recursion, and timing settings are preserved. Switching changes the saved entry everywhere that same lorebook is used.
+
+Macros such as `{{user}}` and `{{char}}` remain literal in saved versions and in the entry editor after **Use**. SillyTavern resolves them later during its normal lorebook prompt processing, using the current chat's context.
+
+Versions are stored with each lorebook entry at `extensions.alternate_lorebook_content.versions` as `{ title, content }` objects. Native lorebook JSON export/import, entry duplication, and moving/copying entries retain that metadata. The extension excludes its saved-version metadata from native scan copies before entry hashing, so editing unused versions does not alter sticky/cooldown tracking. Other tools may discard extension metadata when converting lorebooks. The existing `/altfield` command continues to address character fields.
+
+The feature is isolated in `lorebook-content.js`, `lorebook-content-storage.js`, and `lorebook-content.css`. `index.js` imports the feature; its character-field manager and `style.css` remain independent.
 
 ### Slash Command Usage
 
@@ -90,6 +105,8 @@ extensions.alternate_fields.[field_saveKey]
 ```
 
 This means data travels with the character card when shared. Delete fields you don't want others seeing before sharing.
+
+Lorebook alternates travel with the lorebook entry in native JSON exports, and in character books when SillyTavern embeds those entries in a card. Remove unwanted saved versions before sharing either export.
 
 ## Acknowledgements
 

@@ -1,0 +1,179 @@
+/* Put this entry's alternate-content control on a compact row above its textarea. */
+.alt-lorebook-toolbar {
+    display: flex;
+    justify-content: flex-end;
+    align-self: stretch;
+    margin: 0 0 5px;
+}
+
+/* Size the entry control to its label with 12px text and a small native-style border. */
+.alt-lorebook-button.menu_button {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    width: fit-content;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 5px 6px;
+    font-size: 12px;
+    line-height: 1.2;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    letter-spacing: normal;
+}
+
+/* Keep both parts of the entry control at the requested 12px size. */
+.alt-lorebook-button-icon,
+.alt-lorebook-button-text {
+    font-size: 12px !important;
+}
+
+/* Preserve the character manager's header/list layout with compact lorebook typography. */
+.alt-lorebook-popup {
+    min-width: 0;
+    font-size: 12px;
+    text-align: left;
+}
+
+/* Allow a long entry name to wrap alongside Add New without pushing the popup wider. */
+.alt-lorebook-heading {
+    flex: 1;
+    min-width: 0;
+    font-size: 16px;
+    overflow-wrap: anywhere;
+}
+
+/* Keep the manager's action buttons compact and sized to their text. */
+.alt-lorebook-popup .menu_button {
+    width: auto;
+    min-width: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 4px 6px;
+    font-size: 12px;
+    gap: 4px;
+    white-space: nowrap;
+}
+
+/* Keep manager button icons consistent with the button text. */
+.alt-lorebook-popup .menu_button i {
+    font-size: 12px;
+}
+
+/* Show instructions and original-content preservation below the first divider. */
+.alt-lorebook-description,
+.alt-lorebook-original-notice {
+    display: block;
+    font-size: 11px;
+}
+
+/* Separate the first-open preservation notice without adding another panel. */
+.alt-lorebook-original-notice {
+    margin-top: 3px;
+    font-weight: bold;
+}
+
+/* Keep hidden status, preservation, and active controls out of the layout. */
+.alt-lorebook-popup [hidden] {
+    display: none;
+}
+
+/* Match the existing manager's status row and Save Current placement. */
+.alt-lorebook-status {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 5px 0;
+    padding: 6px 8px;
+    border-radius: 4px;
+}
+
+/* Use the existing manager's green status accent for a matching saved version. */
+.alt-lorebook-status[data-state="active"] {
+    background-color: rgba(40, 167, 69, 0.1);
+    border-inline-start: 3px solid #28a745;
+}
+
+/* Use the existing manager's amber status accent for unsaved or stale content. */
+.alt-lorebook-status[data-state="modified"] {
+    background-color: rgba(255, 193, 7, 0.1);
+    border-inline-start: 3px solid #ffc107;
+}
+
+/* Keep the status message flexible so Save Current stays at the right when space permits. */
+.alt-lorebook-status-text {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Keep each alternate's title/actions, textarea, and counter grouped like character fields. */
+.alt-lorebook-version {
+    margin-bottom: 15px;
+}
+
+/* Keep the title and action controls on one compact row at narrow viewport widths. */
+.alt-lorebook-version-header {
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+
+/* Reserve the same approximate title width as the existing character manager. */
+.alt-lorebook-title-group {
+    width: 40%;
+    min-width: 0;
+    align-items: center;
+}
+
+/* Let title inputs shrink inside their group without becoming full-width controls. */
+.alt-lorebook-version-title {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+    font-size: 12px;
+}
+
+/* Keep Use and Delete together at their natural widths. */
+.alt-lorebook-version-actions {
+    flex: none;
+    flex-wrap: nowrap;
+    gap: 5px;
+}
+
+/* Highlight the active saved textarea with the existing character manager's border color. */
+.alt-lorebook-version-active .alt-lorebook-version-content {
+    border-color: #28a745;
+}
+
+/* Keep editable alternate text at the extension's compact default size. */
+.alt-lorebook-version-content {
+    font-size: 12px;
+}
+
+/* Match the character manager's green check beside an active version title. */
+.alt-lorebook-active-indicator {
+    color: #28a745;
+    font-size: 12px;
+}
+
+/* Dim the Use control when its version already matches the active content. */
+.alt-lorebook-use-active {
+    opacity: 0.5;
+}
+
+/* Place each alternate's token count below its textarea, aligned right. */
+.alt-lorebook-token-counter {
+    margin-top: 5px;
+    text-align: right;
+    font-size: 11px;
+}
+
+/* Place the mobile toolbar just below the native content section's top divider. */
+@media screen and (max-width: 1000px) {
+    /* Reduce only the top inset of content sections that have an alternate-content toolbar. */
+    .world_entry .wi-entry-content-body.alt-lorebook-content-body {
+        padding-top: 5px;
+    }
+}

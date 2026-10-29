@@ -8,6 +8,7 @@ import { SlashCommand } from "../../../slash-commands/SlashCommand.js";
 import { SlashCommandParser } from '../../../slash-commands/SlashCommandParser.js';
 import { ARGUMENT_TYPE, SlashCommandNamedArgument } from '../../../slash-commands/SlashCommandArgument.js';
 import { SlashCommandEnumValue, enumTypes } from '../../../slash-commands/SlashCommandEnumValue.js';
+import './lorebook-content.js';
 
 const fieldConfigs = [
     {
