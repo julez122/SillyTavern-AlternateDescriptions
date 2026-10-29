@@ -203,7 +203,7 @@ function checkFieldStatus(container, field, fieldData) {
             margin: 10px 0; 
             padding: 8px 12px; 
             border-radius: 4px; 
-            font-size: 13px;
+            font-size: 12px;
             display: flex;
             align-items: center;
             gap: 8px;
@@ -222,7 +222,7 @@ function checkFieldStatus(container, field, fieldData) {
         statusIndicator.innerHTML = `
             <i class="fa-solid fa-exclamation-triangle"></i>
             <span>Current ${field.field} has been modified and doesn't match any saved version.</span>
-            <div class="menu_button menu_button_icon" id="save-current-btn" style="margin-left: auto; font-size: 12px; padding: 4px 8px;">
+            <div class="menu_button menu_button_icon" id="save-current-btn" style="margin-left: auto; font-size: 12px; padding: 3px 3px; width: 100%;">
                 <i class="fa-solid fa-save"></i>
                 <span>Save Current</span>
             </div>

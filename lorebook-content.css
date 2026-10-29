@@ -35,6 +35,7 @@
     min-width: 0;
     font-size: 12px;
     text-align: left;
+    padding: 15px 5px;
 }
 
 /* Allow a long entry name to wrap alongside Add New without pushing the popup wider. */
@@ -86,7 +87,7 @@
     align-items: center;
     flex-wrap: wrap;
     gap: 6px;
-    margin: 5px 0;
+    margin: 5px 0 15px 0;
     padding: 6px 8px;
     border-radius: 4px;
 }
@@ -107,6 +108,11 @@
 .alt-lorebook-status-text {
     flex: 1;
     min-width: 0;
+    opacity: 0.7;
+}
+
+.alt-lorebook-status-icon {
+    opacity: 0.7;
 }
 
 /* Keep each alternate's title/actions, textarea, and counter grouped like character fields. */
@@ -149,7 +155,7 @@
 
 /* Keep editable alternate text at the extension's compact default size. */
 .alt-lorebook-version-content {
-    font-size: 12px;
+    font-size: 13px;
 }
 
 /* Match the character manager's green check beside an active version title. */
