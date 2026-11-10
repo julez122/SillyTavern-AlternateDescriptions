@@ -269,7 +269,7 @@ function updateActiveIndicators(container, field, fieldData) {
                 entryItem.classList.add('active-field');
                 useBtn.style.opacity = '0.5';
                 useBtn.title = 'Already active';
-                activeIndicator.innerHTML = `<i class="fa-solid fa-check-circle" style="color: #28a745; margin-left: 8px;"></i>`;
+                activeIndicator.innerHTML = `<i class="fa-solid fa-check-circle" style="color: #28a745; margin-left: 5px; font-size: 12px;"></i>`;
             } else {
                 entryItem.classList.remove('active-field');
                 useBtn.style.opacity = '';
@@ -300,12 +300,12 @@ function updateFieldList(container, field, fieldData) {
     listContainer.innerHTML = fieldData.map((entry, index) => {
         const isActive = entry.content.trim() === currentFieldEntry.trim();
         const activeClass = isActive ? 'active-field' : '';
-        const activeIndicator = isActive ? '<i class="fa-solid fa-check-circle" style="color: #28a745; margin-left: 8px;"></i>' : '';
+        const activeIndicator = isActive ? '<i class="fa-solid fa-check-circle" style="color: #28a745; margin-left: 5px; font-size: 12px;"></i>' : '';
 
         return `
             <div class="field-item ${activeClass}" data-item-index="${index}" style="margin-bottom: 15px;">
                 <div class="flex-container justifySpaceBetween">
-                    <div class="flex-container" style="width: 40%">
+                    <div class="flex-container" style="width: 60%">
                         <input class="text_pole textarea_compact field-title margin0" data-index="${index}" value="${entry.title}" placeholder="${field.field} title" maxlength="50">
                         <div class="active-indicator">${activeIndicator}</div>
                     </div>
