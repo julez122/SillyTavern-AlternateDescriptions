@@ -2,6 +2,19 @@
     margin-top: 5px;
 }
 
+/* Button text size */
+.alt_fields_button span {
+    font-family: var(--mainFontFamily) !important;
+    font-size: 12px;
+    letter-spacing: normal !important;
+}
+
+/* Adjust the icon size to the text size */
+.alt_alt_descriptions_button i,
+.alt_fields_button i::before {
+  font-size: 12px;
+}
+
 .alt_fields_button:hover {
     opacity: 0.8;
 }
